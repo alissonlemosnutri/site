@@ -4,9 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alisson Lemos · Nutricionista Esportivo e Comportamental</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
   :root {
     --bg: #EBEBEB;
     --dark: #1A1A1A;
@@ -17,15 +18,20 @@
     --card: rgba(255,255,255,0.75);
     --border: rgba(0,0,0,0.07);
   }
-  html { scroll-behavior: smooth; }
+
+  html, body { height: 100%; }
+
   body {
     font-family: 'DM Sans', sans-serif;
     background: var(--bg);
     color: var(--dark);
-    min-height: 100vh;
-    overflow-x: hidden;
-    line-height: 1.6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    overflow: hidden;
   }
+
   body::before {
     content: '';
     position: fixed;
@@ -36,294 +42,120 @@
     opacity: 0.5;
   }
 
-  .wrapper {
+  .container {
     position: relative;
     z-index: 1;
     width: 100%;
-    max-width: 540px;
-    margin: 0 auto;
-    padding: 40px 20px 64px;
-  }
-
-  /* ─── HEADER / HERO ─── */
-  header {
+    max-width: 440px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    padding: 24px 0 32px;
     animation: fadeUp 0.8s ease both;
   }
-  .photo {
-    width: 96px;
-    height: 96px;
+
+  /* ─── AVATAR ─── */
+  .avatar-wrap {
+    width: 104px;
+    height: 104px;
     border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgba(255,255,255,0.8);
+    margin-bottom: 20px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  }
+
+  .photo {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center top;
-    border: 2px solid rgba(255,255,255,0.6);
-    margin-bottom: 16px;
-    display: block;
-    margin-inline: auto;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   }
+
+  /* ─── PROFILE ─── */
   .crn {
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 500;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.24em;
     color: var(--accent2);
     text-transform: uppercase;
-    margin-bottom: 8px;
-    display: block;
-  }
-  h1 {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 2.4rem;
-    font-weight: 500;
-    letter-spacing: -0.02em;
-    color: var(--dark);
-    margin-bottom: 12px;
-  }
-  .tagline {
-    font-size: 0.95rem;
-    font-weight: 300;
-    color: var(--mid);
-    max-width: 400px;
-    margin-inline: auto;
-  }
-  .divider {
-    width: 36px;
-    height: 1px;
-    background: var(--accent2);
-    margin: 28px auto;
-    opacity: 0.6;
-  }
-
-  /* ─── SECTIONS COMMON ─── */
-  section {
-    margin-bottom: 40px;
-    animation: fadeUp 0.8s 0.2s ease both;
-    opacity: 0;
-  }
-  .section-label {
-    font-size: 9px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--light);
-    font-weight: 500;
-    display: block;
-    margin-bottom: 14px;
-  }
-  .card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 24px;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-  }
-
-  /* ─── METODO / PILLARS ─── */
-  .pillars-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-  .pillar {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-  }
-  .pillar strong {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--dark);
-    display: flex;
-    align-items: center;
-    gap: 8px;
     margin-bottom: 6px;
   }
-  .pillar p {
-    font-size: 0.82rem;
-    font-weight: 300;
-    color: var(--mid);
-  }
 
-  /* ─── FAQ ─── */
-  .faq-item {
-    margin-bottom: 16px;
-  }
-  .faq-item:last-child { margin-bottom: 0; }
-  .faq-item strong {
-    font-size: 0.88rem;
+  .name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2rem;
     font-weight: 500;
     color: var(--dark);
-    display: block;
-    margin-bottom: 4px;
-  }
-  .faq-item p {
-    font-size: 0.82rem;
-    font-weight: 300;
-    color: var(--mid);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
   }
 
-  /* ─── BUTTONS / CTA ─── */
-  .cta-wrap {
-    text-align: center;
-    padding: 16px 0;
+  .divider {
+    width: 32px;
+    height: 1px;
+    background: var(--accent2);
+    opacity: 0.5;
+    margin: 24px 0;
   }
+
+  .tagline {
+    font-size: 0.92rem;
+    font-weight: 300;
+    color: var(--mid);
+    line-height: 1.7;
+    max-width: 380px;
+    margin-bottom: 36px;
+  }
+
+  /* ─── BUTTON ─── */
   .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
     background: var(--accent);
     color: #fff;
-    font-family: 'DM Sans', sans-serif;
     font-size: 0.95rem;
     font-weight: 500;
-    padding: 18px 36px;
+    letter-spacing: 0.03em;
+    padding: 18px 44px;
     border-radius: 50px;
     text-decoration: none;
-    box-shadow: 0 4px 14px rgba(45, 92, 63, 0.2);
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    box-shadow: 0 6px 20px rgba(45, 92, 63, 0.15);
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
   }
+
   .btn:active { transform: scale(0.97); }
-  .btn svg { width: 18px; height: 18px; fill: currentColor; }
 
-  .btn-secondary {
-    background: transparent;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    box-shadow: none;
-    margin-bottom: 32px;
-  }
-
-  /* ─── FOOTER ─── */
-  footer {
-    text-align: center;
-    font-size: 0.7rem;
-    color: var(--light);
-    font-weight: 300;
-    letter-spacing: 0.05em;
-    margin-top: 24px;
+  @media (hover: hover) {
+    .btn:hover {
+      background: #20452f;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(45, 92, 63, 0.25);
+    }
   }
 
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(16px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-
-  /* Desktop Hovers */
-  @media (hover: hover) {
-    .btn:hover { background: #20452f; transform: translateY(-1px); }
-    .btn-secondary:hover { background: rgba(45, 92, 63, 0.05); }
-    .pillar:hover { background: rgba(255,255,255,0.85); border-color: rgba(0,0,0,0.12); }
-  }
 </style>
 </head>
 <body>
 
-<div class="wrapper">
-
-  <header>
+<div class="container">
+  <div class="avatar-wrap">
     <img class="photo" src="alisson-lemos.jpg" alt="Alisson Lemos">
-    <span class="crn">Nutricionista · CRN 2-12826P</span>
-    <h1>Alisson Lemos</h1>
-    <p class="tagline">O simples feito com constância é o que sustenta uma relação saudável com a comida. Uma nutrição sem terrorismo, adaptada à sua realidade e focada no que funciona para você.</p>
-    <div class="divider"></div>
-    
-    <a href="#como-funciona" class="btn btn-secondary">Começar por aqui ↓</a>
-  </header>
+  </div>
 
-  <section id="sobre">
-    <span class="section-label">Como penso a nutrição</span>
-    <div class="card">
-      <p style="font-size: 0.9rem; font-weight: 300; color: var(--mid); margin-bottom: 12px;">
-        Acredito que comer bem não deve ser um fardo. Minha conduta clínica une a ciência da nutrição à escuta atenta e ao respeito pela sua história pessoal.
-      </p>
-      <p style="font-size: 0.9rem; font-weight: 300; color: var(--mid);">
-        Mais do que entregar um plano genérico, meu objetivo é construir com você um planejamento alimentar viável, onde a comida seja uma aliada da sua rotina e do seu contexto de vida — sem gerar ansiedade ou restrições extremas.
-      </p>
-    </div>
-  </section>
+  <span class="crn">Nutricionista · CRN 2-12826P</span>
+  <h1 class="name">Alisson Lemos</h1>
 
-  <section id="como-funciona">
-    <span class="section-label">Como funciona o meu trabalho</span>
-    <div class="pillars-grid">
-      <div class="pillar">
-        <strong><span>⚙️</span>Estratégia sob medida</strong>
-        <p>O planejamento é estruturado somente após entendermos a fundo sua rotina, preferências e objetivos específicos, garantindo que o plano faça sentido no seu dia a dia.</p>
-      </div>
-      <div class="pillar">
-        <strong><span>💬</span>Suporte contínuo via WhatsApp</strong>
-        <p>Você tem um canal direto de comunicação em horário comercial para sanar dúvidas pontuais e fazer pequenos alinhamentos sempre que necessário, facilitando a constância.</p>
-      </div>
-      <div class="pillar">
-        <strong><span>🔄</span>Evolução e Ajustes do Processo</strong>
-        <p>Sua rotina muda e seu contexto evolui. Por isso, a estratégia é dinâmica e revisada de forma a acompanhar suas respostas e os novos cenários da sua rotina diária.</p>
-      </div>
-    </div>
-  </section>
+  <div class="divider"></div>
 
-  <section id="atendimento">
-    <span class="section-label">Modalidades de Atendimento</span>
-    <div class="card" style="display: flex; flex-direction: column; gap: 12px;">
-      <div style="font-size: 0.88rem; font-weight: 300; color: var(--mid);">
-        📍 <strong>Presencial:</strong> Consulta focada no diálogo e no acolhimento do paciente. Espaço estruturado em Passo Fundo/RS.
-      </div>
-      <div style="font-size: 0.88rem; font-weight: 300; color: var(--mid);">
-        🌐 <strong>Online:</strong> Plataforma de atendimento por videoconferência com o mesmo direcionamento, atenção e profundidade para qualquer lugar do Brasil.
-      </div>
-    </div>
-  </section>
+  <p class="tagline">O simples feito com constância é o que sustenta uma relação saudável com a comida. Uma nutrição sem terrorismo, adaptada à sua realidade e focada no que funciona para você.</p>
 
-  <section id="faq">
-    <span class="section-label">Perguntas Frequentes</span>
-    <div class="card">
-      <div class="faq-item">
-        <strong>Para qual perfil de paciente o seu atendimento é indicado?</strong>
-        <p>Meu acompanhamento é desenhado para dois objetivos que caminham juntos: atendo tanto quem treina e busca melhorar o rendimento, a composição corporal e a performance esportiva, quanto quem deseja melhorar a sua relação com a comida, superando o ciclo de dietas restritivas. Unindo a ciência da nutrição à abordagem comportamental, estruturo estratégias eficientes para quem busca desempenho, saúde ou simplesmente paz com a alimentação.</p>
-      </div>
-      <div class="sep" style="height: 1px; background: var(--border); margin: 14px 0;"></div>
-      <div class="faq-item">
-        <strong>Vou ter que cortar o que eu gosto de comer?</strong>
-        <p>Não. O foco do meu acompanhamento é a sustentabilidade. Ajustamos a distribuição e a qualidade dos alimentos ao longo do dia, abrindo espaço para que suas preferências continuem presentes.</p>
-      </div>
-      <div class="sep" style="height: 1px; background: var(--border); margin: 14px 0;"></div>
-      <div class="faq-item">
-        <strong>O plano serve para quem tem a rotina muito corrida?</strong>
-        <p>Sim. O planejamento deve servir à sua vida, e não o oposto. Se você viaja muito, come fora ou tem pouco tempo, focamos em opções práticas e de fácil execução.</p>
-      </div>
-      <div class="sep" style="height: 1px; background: var(--border); margin: 14px 0;"></div>
-      <div class="faq-item">
-        <strong>Como funciona o suporte pós-consulta?</strong>
-        <p>Você terá um canal direto comigo pelo WhatsApp para esclarecer dúvidas sobre marcas, substituições emergenciais de alimentos ou dificuldades de adaptação.</p>
-      </div>
-      <div class="sep" style="height: 1px; background: var(--border); margin: 14px 0;"></div>
-      <div class="faq-item">
-        <strong>Com que frequência acontecem os retornos?</strong>
-        <p>A frequência é avaliada caso a caso, respeitando o ritmo e as necessidades individuais de cada paciente para consolidar as mudanças comportamentais e os objetivos desejados.</p>
-      </div>
-      <div class="sep" style="height: 1px; background: var(--border); margin: 14px 0;"></div>
-      <div class="faq-item">
-        <strong>Como faço para saber mais sobre valores e agendamentos?</strong>
-        <p>Basta clicar no botão abaixo. Você será direcionado para o meu WhatsApp, onde conversaremos para entender seu momento e alinhar o melhor formato de atendimento.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-wrap">
-    <a href="https://wa.me/5554991244012?text=Ol%C3%A1%2C%20gostaria%20de%20entender%20como%20funciona%20o%20seu%20acompanhamento%20nutricional." class="btn">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Falar com o Nutricionista no WhatsApp
-    </a>
-  </section>
-
-  <footer>
-    @alissonlemosnutri · CRN 2-12826P<br>
-    Passo Fundo · Brasil
-  </footer>
-
+  <a href="./alissonlemos-servicos.html" class="btn">Comece por aqui</a>
 </div>
 
 </body>
